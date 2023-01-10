@@ -21,6 +21,7 @@ export default function StudyUseState() {
     const [text, setText] = useState('hello');
     const [myArray, updateMyArray] = useState([]);
     const isOnline = useIsOnlineFriend(users[1]);
+    const [add, setAdd] = useState(0);
 
     const numberRef = useRef('');
 
@@ -42,9 +43,9 @@ export default function StudyUseState() {
     //     updateMyArray( arr => [...arr, `${arr.length}`]);
     // });
 
-    // const onClickMemo = useMemo (()=> {
-    //     updateMyArray( arr => [...arr, `${arr.length}`]);
-    // }, [myArray]);
+    const testMemo = useMemo (()=> {
+        return number + number;
+    }, [number]);
 
     useEffect(()=> {
         document.title = `The number is ${number}`
@@ -67,6 +68,7 @@ export default function StudyUseState() {
             <br/>
             <button onClick={onClick}>Add Item</button>
             <h1>The use is online? {isOnline}</h1>
+            <h1>sum: {testMemo}</h1>
         </div>
     )
 }
